@@ -180,6 +180,15 @@ public class L01_Kalkulator extends JFrame {
             }
         });
 
+        // Przycisk '<-'
+        buttonBackspace.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String text = textScreen.getText();
+                textScreen.setText(text.substring(0, text.length() - 1));
+            }
+        });
+
         // Przycisk 'C'
         buttonC.addActionListener(new ActionListener() {
             @Override
