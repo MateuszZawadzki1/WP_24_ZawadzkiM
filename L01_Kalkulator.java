@@ -10,7 +10,7 @@ public class L01_Kalkulator extends JFrame {
     private JButton button2 = new JButton("2");
     private JButton button3 = new JButton("3");
     private JButton button4 = new JButton("4");
-    private JButton button5= new JButton("5");
+    private JButton button5 = new JButton("5");
     private JButton button6 = new JButton("6");
     private JButton button7 = new JButton("7");
     private JButton button8 = new JButton("8");
@@ -27,145 +27,177 @@ public class L01_Kalkulator extends JFrame {
     private int firstNumber, secondNumber;
     private char operator;
 
-    public L01_Kalkulator(){
 
+    /*
+     * Konstruktor klasy inicjalizujacy GUI
+     */
+    public L01_Kalkulator() {
+
+
+        // Tworzenie Okna Aplikacji
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel mainPanel = new JPanel(new BorderLayout()); // Main panel of application
-        textScreen = new JTextField("");
-        mainPanel.add("North", textScreen); // dodanie komponentu do panela
+        JPanel mainPanel = new JPanel(new BorderLayout()); // główny panel aplikacji
+        textScreen = new JTextField(""); // obiekt okna
+        mainPanel.add("North", textScreen); // dodanie komponentu okna do panelu (na samej gorze)
 
-        
-        JPanel buttonPanel = new JPanel(new GridLayout(6, 4));
-        buttonPanel.add(new JLabel()); // wstawiamy etykiete (puste pole)
-        buttonPanel.add(new JLabel()); // wstawiamy etykiete (puste pole)
-        buttonPanel.add(new JLabel()); // wstawiamy etykiete (puste pole)
 
+        // Tworzenie akcji dla przycisków
         button0.addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        textScreen.setText(textScreen.getText() + 0);
-    }
-});
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 0);
+            }
+        });
 
-    button1.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 1);
-        }
-    });
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 1);
+            }
+        });
 
-    button2.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 2);
-        }
-    });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 2);
+            }
+        });
 
-    button3.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 3);
-        }
-    });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 3);
+            }
+        });
 
-    button4.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 4);
-        }
-    });
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 4);
+            }
+        });
 
-    button5.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 5);
-        }
-    });
+        button5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 5);
+            }
+        });
 
-    button6.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 6);
-        }
-    });
+        button6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 6);
+            }
+        });
 
-    button7.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 7);
-        }
-    });
+        button7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 7);
+            }
+        });
 
-    button8.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 8);
-        }
-    });
+        button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 8);
+            }
+        });
 
-    button9.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText(textScreen.getText() + 9);
-        }
-    });
+        button9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText(textScreen.getText() + 9);
+            }
+        });
 
-    // Przykład dla przycisków działań matematycznych
-    buttonPlus.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            firstNumber = Integer.parseInt(textScreen.getText());
-            textScreen.setText(textScreen.getText() + "+");  
+        // Operatory
+        buttonPlus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                firstNumber = Integer.parseInt(textScreen.getText());
+                textScreen.setText(textScreen.getText() + "+");
+                operator = '+';
+            }
+        });
 
-        }
-    });
-    
-    buttonMinus.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            firstNumber = Integer.parseInt(textScreen.getText());
-            textScreen.setText(textScreen.getText() + "-");
-        }
-    });
+        buttonMinus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                firstNumber = Integer.parseInt(textScreen.getText());
+                textScreen.setText(textScreen.getText() + "-");
+                operator = '-';
+            }
+        });
 
-    buttonMultiply.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            firstNumber = Integer.parseInt(textScreen.getText());
-            textScreen.setText(textScreen.getText() + "*");
-        }
-    });
+        buttonMultiply.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                firstNumber = Integer.parseInt(textScreen.getText());
+                textScreen.setText(textScreen.getText() + "*");
+                operator = '*';
+            }
+        });
 
-    buttonDivide.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            firstNumber = Integer.parseInt(textScreen.getText());
-            textScreen.setText(textScreen.getText() + "/");
-            operator = "/";
-        }
-    });
+        buttonDivide.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                firstNumber = Integer.parseInt(textScreen.getText());
+                textScreen.setText(textScreen.getText() + "/");
+                operator = '/';
+            }
+        });
 
-    // Przycisk '='
-    buttonEqual.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String screeen = textScreen.getText(); // Zawartosc ekranu
-            int indexOfOperator = screeen.indexOf("/");
-            secondNumber = Integer.parseInt(screeen.substring(indexOfOperator + 1));
-            textScreen.setText(Integer.toString(firstNumber / secondNumber));
-        }
-    });
+        // Przycisk '='
+        buttonEqual.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String screeen = textScreen.getText(); // Zawartosc ekranu
+                int indexOfOperator = screeen.indexOf(operator);
+                secondNumber = Integer.parseInt(screeen.substring(indexOfOperator + 1));
+                switch (operator) {
+                    case '/':
+                        if (secondNumber != 0) {
+                            textScreen.setText(Integer.toString(firstNumber / secondNumber));
+                        } else {
+                            textScreen.setText("Error");
+                        }
+                        break;
+                    case '*':
+                        textScreen.setText(Integer.toString(firstNumber * secondNumber));
+                        break;
+                    case '-':
+                        textScreen.setText(Integer.toString(firstNumber - secondNumber));
+                        break;
+                    case '+':
+                        textScreen.setText(Integer.toString(firstNumber + secondNumber));
+                        break;
+                    default:
+                        break;
+                }
 
-    // Przycisk 'C'
-    buttonC.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            textScreen.setText("");
-        }
-    });
+            }
+        });
+
+        // Przycisk 'C'
+        buttonC.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textScreen.setText("");
+                firstNumber = 0;
+                secondNumber = 0;
+                operator = ' ';
+            }
+        });
 
 
+        // Tworzenie siatki wraz z przyciskami
+        JPanel buttonPanel = new JPanel(new GridLayout(6, 4)); // tworzenie siatki przyciskow 6x4
 
+        buttonPanel.add(new JLabel()); // wstawiamy etykiete (puste pole)
+        buttonPanel.add(new JLabel()); 
+        buttonPanel.add(new JLabel()); 
         buttonPanel.add(buttonC);
         buttonPanel.add(button7);
         buttonPanel.add(button8);
@@ -189,17 +221,15 @@ public class L01_Kalkulator extends JFrame {
         buttonPanel.add(buttonEqual);
 
 
+        mainPanel.add("Center", buttonPanel); // dodanie panelu z przyciskami do glownego panelu
 
-
-        mainPanel.add("Center", buttonPanel);
-
-        setContentPane(mainPanel); //stawia panel okna do aplk
+        setContentPane(mainPanel); // stawia panel okna do aplk
         pack(); // dostosowywuje rozmiar okienka aplikacji
         setVisible(true); // wyswietla okienko aplikacji na ekranie
     }
 
     public static void main(String[] args) {
-        L01_Kalkulator app = new L01_Kalkulator();
+        new L01_Kalkulator();
 
     }
 }
