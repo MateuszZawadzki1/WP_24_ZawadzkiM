@@ -26,6 +26,7 @@ public class L01_Kalkulator extends JFrame {
     private JTextField textScreen;
     private int firstNumber, secondNumber;
     private char operator;
+    private Kalkulator kalkulator;
 
 
     /*
@@ -39,7 +40,8 @@ public class L01_Kalkulator extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout()); // główny panel aplikacji
         textScreen = new JTextField(""); // obiekt okna
         mainPanel.add("North", textScreen); // dodanie komponentu okna do panelu (na samej gorze)
-
+          
+        kalkulator = new Kalkulator(textScreen);
 
         // Tworzenie akcji dla przycisków
         button0.addActionListener(new ActionListener() {
@@ -52,13 +54,15 @@ public class L01_Kalkulator extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textScreen.setText(textScreen.getText() + 1);
+             //   textScreen.setText(textScreen.getText() + 1);
+
             }
         });
 
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 textScreen.setText(textScreen.getText() + 2);
             }
         });
@@ -134,6 +138,8 @@ public class L01_Kalkulator extends JFrame {
         buttonMultiply.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                kalkulator.setOperator('*');
+
                 firstNumber = Integer.parseInt(textScreen.getText());
                 textScreen.setText(textScreen.getText() + "*");
                 operator = '*';
@@ -153,6 +159,8 @@ public class L01_Kalkulator extends JFrame {
         buttonEqual.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                kalkulator.calculate();
+
                 String screeen = textScreen.getText(); // Zawartosc ekranu
                 int indexOfOperator = screeen.indexOf(operator);
                 secondNumber = Integer.parseInt(screeen.substring(indexOfOperator + 1));
