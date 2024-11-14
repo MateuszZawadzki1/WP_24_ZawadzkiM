@@ -21,6 +21,14 @@ public abstract class MapSite {
         return y;
     }
 
+    public int setX(int a) {
+        return x = a;
+    }
+
+    public int setY(int b) {
+        return y = b;
+    }
+
     /**
      * Rysuje element labiryntu
      * 
