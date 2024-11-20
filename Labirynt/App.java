@@ -56,8 +56,8 @@ public class App extends JFrame{
         Wall wall3 = new Wall(50, 100, Directions.WEST);
         room1.setSite(Directions.WEST, wall3);
 
-        Wall wall4 = new Wall(50, 100, Directions.EAST);
-        room1.setSite(Directions.EAST, wall4);
+        //Wall wall4 = new Wall(50, 100, Directions.EAST);
+        //room1.setSite(Directions.EAST, wall4);
 
         room1.draw(image);
 
@@ -69,11 +69,15 @@ public class App extends JFrame{
         Wall wall22 = new Wall(50, 100, Directions.SOUTH);
         room2.setSite(Directions.SOUTH, wall2);
 
-        Wall wall23 = new Wall(50, 100, Directions.WEST);
-        room2.setSite(Directions.WEST, wall3);
+       // Wall wall23 = new Wall(50, 100, Directions.WEST);
+        //room2.setSite(Directions.WEST, wall3);
 
         Wall wall24 = new Wall(50, 100, Directions.EAST);
-        room2.setSite(Directions.EAST, wall4);
+        room2.setSite(Directions.EAST, wall24);
+
+        Door door = new Door(room1, room2, true);
+        room1.setSite(Directions.EAST, door);  
+        room2.setSite(Directions.WEST, door);  
 
         room2.draw(image);
         

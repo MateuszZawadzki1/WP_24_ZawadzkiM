@@ -1,13 +1,14 @@
+
 import java.awt.Graphics;
 import java.awt.Image;
 
 public class Door extends MapSite {
+
     private Room roomOne;
     private Room roomTwo;
     private boolean isOpen = true;
-    
 
-    public Door (Room roomOne, Room roomTwo, boolean isOpen) {
+    public Door(Room roomOne, Room roomTwo, boolean isOpen) {
         super(-1, -1); // współrzedne nieokreślone
         this.roomOne = roomOne;
         this.roomTwo = roomTwo;
@@ -21,14 +22,23 @@ public class Door extends MapSite {
         int x2 = roomTwo.getX();
         int y2 = roomTwo.getY();
         Graphics g = image.getGraphics();
-        if (x1 == x2) {     // Rooms are vertical
-            if (y1 > y2) {
-                g.drawLine(x1, y1, x1 + MapSite.lenght, y1);
-        } else {g.drawLine(x1, y2, x1 + MapSite.lenght, y2);}
-        if (x1 > x2) {
-            g.drawLine(x1, y1, x1, y1 + MapSite.lenght);
-        } else {
-            g.drawLine(x2, y1, x2, y1 + MapSite.lenght);
+        int doorLength = MapSite.lenght / 3;
+
+        if (x1 == x2) {     // Rooms are horizontally
+            int y = Math.min(y1, y2);
+            int startX = x1;
+            int endX = startX + MapSite.lenght;
+
+
+            g.drawLine(startX, y, startX + (MapSite.lenght - doorLength)/2, y);
+            g.drawLine(endX - (MapSite.lenght - doorLength) / 2, y, endX, y);
+        } else {  // Rooms are vertically
+            int x = Math.min(x1, x2) + MapSite.lenght; 
+            int startY = y1;
+            int endY = startY + MapSite.lenght;
+    
+            g.drawLine(x, startY, x, startY + (MapSite.lenght - doorLength) / 2); 
+            g.drawLine(x, endY - (MapSite.lenght - doorLength) / 2, x, endY); 
         }
     }
 }
