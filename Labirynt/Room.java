@@ -9,6 +9,10 @@ public class Room extends MapSite {
         nr = roomNr;
     }
 
+    public int getRoomNr() {
+        return nr;
+    }
+
 
     public void setSite(Directions d, MapSite mapsite){
         switch (d){

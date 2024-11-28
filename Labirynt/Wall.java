@@ -4,6 +4,12 @@ import java.awt.Image;
 public class Wall extends MapSite {
     private Directions direction;
 
+    public Wall(Directions d) {
+        super(-1, -1);
+        direction = d;
+    }
+
+
     public Wall(int x, int y, Directions d) {
         super(x, y);
         direction = d;
