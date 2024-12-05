@@ -19,6 +19,8 @@ public class App extends JFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (image == null)
+                  image = panel.getImage();
                 buildMaze();
             }
         });
@@ -39,10 +41,31 @@ public class App extends JFrame {
         cb.buildMaze();
 
         cb.buildRoom(1, x, y);
-        cb.buildRoom(2, x, y);
+        cb.buildRoom(2, x, y+MapSite.lenght);
         cb.buildDoor(1, 2);
 
-        cb.getMaze();
+        cb.buildRoom(3, x, y-MapSite.lenght);
+        cb.buildDoor(1, 3);
+
+        cb.buildRoom(4, x+MapSite.lenght, y);
+        cb.buildDoor(1, 4);
+
+        cb.buildRoom(5, x+(MapSite.lenght*2), y);
+        cb.buildDoor(4, 5);
+        cb.buildDoor(5, 4);
+
+        cb.buildRoom(6, x+(MapSite.lenght*2), y-MapSite.lenght);
+        cb.buildDoor(5, 6);
+
+        cb.buildRoom(7, x+(MapSite.lenght*2), y+MapSite.lenght);
+        cb.buildDoor(5, 7);
+
+        cb.buildRoom(8, x+(MapSite.lenght*3), y);
+        cb.buildDoor(5, 8);
+
+        Maze maze = cb.getMaze();
+        maze.drawMaze(image);
+        panel.repaint();
     }
 
     public void standardMaze(int x, int y) {
