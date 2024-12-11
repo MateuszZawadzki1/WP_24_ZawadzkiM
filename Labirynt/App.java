@@ -3,6 +3,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,7 +13,7 @@ public class App extends JFrame {
     private Image image;
 
     public App() {
-        setSize(300, 300);
+        setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new MyJPanel();
         JButton button = new JButton("Draw");
@@ -62,7 +63,7 @@ public class App extends JFrame {
 
         cb.buildRoom(8, x+(MapSite.lenght*3), y);
         cb.buildDoor(5, 8);
-
+        
         Maze maze = cb.getMaze();
         maze.drawMaze(image);
         panel.repaint();

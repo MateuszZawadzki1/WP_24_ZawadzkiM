@@ -13,7 +13,7 @@ public class CreateBuilder implements MazeBuilder{
                 return Directions.NORTH;
             }
         } else {
-            if (room1.getX() < room2.getY()) {
+            if (room1.getX() < room2.getX()) {
                 return Directions.EAST;
             } else {
                 return Directions.WEST;
