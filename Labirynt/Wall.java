@@ -33,4 +33,8 @@ public class Wall extends MapSite {
         }
     }
 
+    public Directions getDirection(){
+        return direction;
+    }
+
 }

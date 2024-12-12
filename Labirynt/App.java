@@ -13,7 +13,7 @@ public class App extends JFrame {
     private Image image;
 
     public App() {
-        setSize(500, 500);
+        setSize(350, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new MyJPanel();
         JButton button = new JButton("Draw");
