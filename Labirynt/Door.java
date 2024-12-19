@@ -4,9 +4,9 @@ import java.awt.Image;
 
 public class Door extends MapSite {
 
-    private Room roomOne;
-    private Room roomTwo;
-    private boolean isOpen = true;
+    protected Room roomOne;
+    protected Room roomTwo;
+    protected boolean isOpen = true;
 
     public Door(Room roomOne, Room roomTwo, boolean isOpen) {
         super(-1, -1); // współrzedne nieokreślone
