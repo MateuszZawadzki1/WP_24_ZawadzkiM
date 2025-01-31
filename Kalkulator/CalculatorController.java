@@ -1,20 +1,21 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 public class CalculatorController {
-    private CalculatorModel model;
-    private CalculatorView view;
+    private final CalculatorModel model;
+    private final CalculatorView view;
 
     public CalculatorController(CalculatorModel model, CalculatorView view) {
         this.model = model;
         this.view = view;
 
+        // Przyciski
         for (JButton button : view.getNumberButtons()) {
             button.addActionListener(new NumberButtonListener());
         }
 
+        // Operatory
         view.getButtonPlus().addActionListener(new OperatorButtonListener('+'));
         view.getButtonMinus().addActionListener(new OperatorButtonListener('-'));
         view.getButtonMultiply().addActionListener(new OperatorButtonListener('*'));
@@ -24,6 +25,7 @@ public class CalculatorController {
         view.getButtonBackspace().addActionListener(new BackspaceButtonListener());
     }
 
+    // Liczby
     private class NumberButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -32,8 +34,9 @@ public class CalculatorController {
         }
     }
 
+    // Operatory
     private class OperatorButtonListener implements ActionListener {
-        private char operator;
+        private final char operator;
 
         public OperatorButtonListener(char operator) {
             this.operator = operator;
@@ -47,6 +50,7 @@ public class CalculatorController {
         }
     }
 
+    // Wynik
     private class EqualsButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -60,6 +64,7 @@ public class CalculatorController {
         }
     }
 
+    // Reset
     private class ClearButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

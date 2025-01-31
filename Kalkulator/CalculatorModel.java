@@ -17,20 +17,23 @@ public class CalculatorModel {
 
     public int calculateResult() {
         switch (operator) {
-            case '+':
+            case '+' -> {
                 return number1 + number2;
-            case '-':
+            }
+            case '-' -> {
                 return number1 - number2;
-            case '*':
+            }
+            case '*' -> {
                 return number1 * number2;
-            case '/':
+            }
+            case '/' -> {
                 if (number2 != 0) {
                     return number1 / number2;
                 } else {
                     throw new ArithmeticException("Nie można dzielić przez zero");
                 }
-            default:
-                throw new IllegalArgumentException("Nieznany operator");
+            }
+            default -> throw new IllegalArgumentException("Nieznany operator");
         }
     }
 
