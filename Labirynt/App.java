@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,12 +24,24 @@ public class App extends JFrame {
                 if (image == null)
                   image = panel.getImage();
                 buildMaze();
+            }  
+        });
+
+        JButton buttonBoom = new JButton("Boom");
+        buttonBoom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // ZMIENIAC PARAMETR BOMBEDWALL DMG:TRUE
+                
             }
         });
 
         setLayout(new BorderLayout());
         add(panel, BorderLayout.CENTER); // panel in central position
-        add(button, "North");
+        JPanel menuPanel = new JPanel(new GridLayout(1, 2));
+        menuPanel.add(button);
+        menuPanel.add(buttonBoom);
+        add(menuPanel, "North");
     }
 
     public void buildMaze() {
