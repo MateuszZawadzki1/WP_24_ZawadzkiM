@@ -33,7 +33,7 @@ public class CreateBuilder implements MazeBuilder{
         r.setSite(Directions.EAST, new Wall(Directions.EAST));
         r.setSite(Directions.WEST, new Wall(Directions.WEST));
         //r.setSite(Directions.SOUTH, new Wall(Directions.SOUTH));
-        r.setSite(Directions.SOUTH, new BombedWall(x, y, Directions.SOUTH, false));  // TEST BOMBEDWALL
+        r.setSite(Directions.SOUTH, new BombedWall(x, y, Directions.SOUTH, true));  // TEST BOMBEDWALL
         maze.addRoom(r);
     }
 
